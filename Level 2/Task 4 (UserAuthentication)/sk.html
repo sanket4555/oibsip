@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Authentication</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            padding: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .input-field:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        .button {
+            width: 100%;
+            padding: 14px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .button:active {
+            background-color: #388e3c;
+        }
+
+        .link {
+            text-align: center;
+            display: block;
+            margin-top: 15px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .success-message {
+            color: green;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .form-container {
+            display: none;
+        }
+
+        #loginForm, #registerForm {
+            display: block;
+        }
+
+        .secured-page {
+            text-align: center;
+        }
+
+        .logout-button {
+            padding: 12px 20px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .logout-button:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Login Form -->
+        <div class="form-container" id="loginForm">
+            <h2>Login</h2>
+            <input type="text" id="loginUsername" class="input-field" placeholder="Username">
+            <input type="password" id="loginPassword" class="input-field" placeholder="Password">
+            <button onclick="login()" class="button">Login</button>
+            <p class="link">Don't have an account? <a href="javascript:void(0)" onclick="showRegister()">Register here</a></p>
+            <p class="error-message" id="loginError"></p>
+        </div>
+
+        <!-- Registration Form -->
+        <div class="form-container" id="registerForm">
+            <h2>Register</h2>
+            <input type="text" id="registerUsername" class="input-field" placeholder="Username">
+            <input type="password" id="registerPassword" class="input-field" placeholder="Password">
+            <input type="password" id="registerConfirmPassword" class="input-field" placeholder="Confirm Password">
+            <button onclick="register()" class="button">Register</button>
+            <p class="link">Already have an account? <a href="javascript:void(0)" onclick="showLogin()">Login here</a></p>
+            <p class="error-message" id="registerError"></p>
+        </div>
+
+        <!-- Secured Page -->
+        <div class="secured-page" id="securedPage" style="display:none;">
+            <h2>Welcome to the secured page!</h2>
+            <p>You are successfully logged in.</p>
+            <button onclick="logout()" class="logout-button">Logout</button>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
