@@ -3,26 +3,16 @@
 This repository contains the tasks completed during the **Oasis Infobyte Internship**. The tasks are divided into two levels: **Level 1** and **Level 2**, with each level containing various projects developed using **HTML**, **CSS**, and **JavaScript**.
 
 ## Table of Contents
-- [Level 1](#level-1)
-  - [Task 1: Landing Page](#task-1-landing-page)
-  - [Task 2: Personal Portfolio](#task-2-personal-portfolio)
-  - [Task 3: Temperature Converter](#task-3-temperature-converter)
-- [Level 2](#level-2)
-  - [Task 1: Graphic User Calculator](#task-1-graphic-user-calculator)
-  - [Task 2: Tribute Page of Albert Einstein](#task-2-tribute-page-of-albert-einstein)
-  - [Task 3: To-Do App](#task-3-to-do-app)
-  - [Task 4: User Authentication System](#task-4-user-authentication-system)
+- [Level 1]
+  - [Task 1: Landing Page]
+  - [Task 2: Personal Portfolio]
+  - [Task 3: Temperature Converter]
+- [Level 2]
+  - [Task 1: Graphic User Calculator]
+  - [Task 2: Tribute Page of Albert Einstein]
+  - [Task 3: To-Do App]
+  - [Task 4: User Authentication System]
 
-## Table of Contents
-- Level 1
-  -Task 1: Landing Page
-  -Task 2: Personal Portfolio
-Task 3: Temperature Converter
-- Level 2
-Task 1: Graphic User Calculator
-Task 2: Tribute Page of Albert Einstein
-Task 3: To-Do App
-Task 4: User Authentication System
 
 ## Level 1
 
