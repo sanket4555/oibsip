@@ -15,8 +15,8 @@ This repository contains the tasks completed during the **Oasis Infobyte Interns
 
 ## Table of Contents
 - Level 1
-Task 1: Landing Page
-Task 2: Personal Portfolio
+  -Task 1: Landing Page
+  -Task 2: Personal Portfolio
 Task 3: Temperature Converter
 - Level 2
 Task 1: Graphic User Calculator
