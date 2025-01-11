@@ -13,6 +13,16 @@ This repository contains the tasks completed during the **Oasis Infobyte Interns
   - [Task 3: To-Do App](#task-3-to-do-app)
   - [Task 4: User Authentication System](#task-4-user-authentication-system)
 
+## Table of Contents
+- Level 1
+Task 1: Landing Page
+Task 2: Personal Portfolio
+Task 3: Temperature Converter
+- Level 2
+Task 1: Graphic User Calculator
+Task 2: Tribute Page of Albert Einstein
+Task 3: To-Do App
+Task 4: User Authentication System
 
 ## Level 1
 
