@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanket Shewalkar - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a192f;
+            --secondary: #172a45;
+            --accent: #64ffda;
+            --text: #ccd6f6;
+            --text-secondary: #8892b0;
+            --neon-blue: #00f3ff;
+            --neon-purple: #b400ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background: var(--primary);
+            color: var(--text);
+            overflow-x: hidden;
+            perspective: 1000px;
+        }
+
+        #parallax-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            transform-style: preserve-3d;
+        }
+
+        .star-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 1s infinite alternate;
+        }
+
+        .planet {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue));
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes twinkle {
+            from { opacity: 0.2; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .shooting-star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: linear-gradient(45deg, white, transparent);
+            transform: rotate(45deg);
+            animation: shoot 1s linear forwards;
+        }
+
+        @keyframes shoot {
+            from { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            to { transform: translateX(200%) translateY(200%) rotate(45deg); }
+        }
+
+        .nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            gap: 20px;
+            backdrop-filter: blur(10px);
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        .nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            padding: 8px 16px;
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .nav a:hover::before {
+            left: 100%;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(23, 42, 69, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transform: translateZ(0);
+        }
+
+        #home {
+            text-align: center;
+        }
+
+        .profile-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 30px;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            animation: glow 2s infinite alternate;
+        }
+
+        .orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 250px;
+            height: 250px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .mini-planet {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            top: -10px;
+            left: calc(50% - 10px);
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 10px var(--accent); }
+            to { box-shadow: 0 0 30px var(--accent), 0 0 50px var(--neon-blue); }
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+        }
+
+        .typing-text {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            min-height: 1.5em;
+            color: var(--text);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .project-card {
+            background: rgba(23, 42, 69, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(100, 255, 218, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: 0.5s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            padding: 40px 0;
+        }
+
+        .skill-constellation {
+            position: relative;
+            width: 150px;
+            height: 150px;
+        }
+
+        .skill-star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: twinkle 1s infinite alternate;
+        }
+
+        .skill-name {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: 0.3s;
+            color: var(--accent);
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            width: 100%;
+        }
+
+        .skill-constellation:hover .skill-name {
+            opacity: 1;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            position: relative;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            background: rgba(23, 42, 69, 0.9);
+            border: 1px solid var(--accent);
+            color: var(--text);
+            border-radius: 4px;
+            font-family: 'Roboto Mono', monospace;
+            transition: all 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        .rocket {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 60px;
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        .rocket.launch {
+            animation: launch 2s forwards;
+        }
+
+        @keyframes launch {
+            0% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-1000px);
+            }
+        }
+
+        .submit-btn {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                bottom: 20px;
+                top: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .typing-text {
+                font-size: 1.2em;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="parallax-container">
+        <div class="star-layer" data-speed="0.5"></div>
+        <div class="star-layer" data-speed="1"></div>
+        <div class="star-layer" data-speed="2"></div>
+    </div>
+    
+    <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="home">
+        <div class="container">
+            <div class="profile-container">
+                <img src="C:\Users\shewa\OneDrive\Desktop\semi\portfolio2\WhatsApp Image 2025-01-01 at 18.56.39.jpeg" alt="Sanket Shewalkar" class="profile-img">
+                <div class="orbit">
+                    <div class="mini-planet"></div>
+                </div>
+            </div>
+            <h1>Sanket Shewalkar</h1>
+            <div class="typing-text"></div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>Bachelor of Engineering in Information Technology (2026)<br>
+                Marathwada Mitra Mandal's College of Engineering, Pune<br>
+                CGPA: 7.86</p>
+                <p>Career Objective: Building a career with leading industries, committed to exploring my potential fully.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>AI-Driven Research Engine</h3>
+                    <p>An AI-based tool to assist judges with legal research</p>
+                    <p>Tools: HTML, CSS, Python Flask, MongoDB</p>
+                </div>
+                <div class="project-card">
+                    <h3>Sports Club Management</h3>
+                    <p>Web-based platform for slot booking and member management</p>
+                    <p>Tools: Flask, HTML, CSS, JavaScript, MongoDB</p>
+                </div>
+                <div class="project-card">
+                    <h3>Gym Management System</h3>
+                    <p>Java-based system for admin and member operations</p>
+                    <p>Tools: Java Swing, AWT, MySQL, JDBC</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-container" id="skills-container"></div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" rows="5" required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
+                <div class="rocket">🚀</div>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Parallax effect
+        function createParallaxStars() {
+            const layers = document.querySelectorAll('.star-layer');
+            layers.forEach((layer, index) => {
+                const speed = layer.dataset.speed;
+                const starCount = 50;
+                
+                for (let i = 0; i < starCount; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    star.style.left = `${Math.random() * 100}%`;
+                    star.style.top = `${Math.random() * 100}%`;
+                    star.style.width = `${Math.random() * 3}px`;
+                    star.style.height = star.style.width;
+                    star.style.transform = `translateZ(${speed * 50}px)`;
+                    layer.appendChild(star);
+                }
+            });
+        }
+
+        // Typing animation
+        function typeText() {
+            const text = "Exploring Technology, One Project at a Time";
+            const element = document.querySelector('.typing-text');
+            let index = 0;
+
+            function type() {
+                if (index < text.length) {
+                    element.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(type, 100);
+                }
+            }
+
+            type();
+        }
+
+        // Shooting stars
+        function createShootingStar() {
+            const container = document.getElementById('parallax-container');
+            const star = document.createElement('div');
+            star.className = 'shooting-star';
+            container.appendChild(star);
+            
+            setTimeout(() => star.remove(), 1000);
+        }
+
+        // Skills constellation
+        function createSkillsConstellation() {
+            const skills = ['Python', 'Java', 'C', 'HTML/CSS', 'JavaScript', 'MongoDB', 'MySQL'];
+            const container = document.getElementById('skills-container');
+
+            skills.forEach(skill => {
+                const constellation = document.createElement('div');
+                constellation.className = 'skill-constellation';
+
+                // Create random stars in constellation
+                for (let i = 0; i < 10; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'skill-star';
+                    star.style.left = `${Math.random() * 100}%`;
+                    star.style.top = `${Math.random() * 100}%`;
+                    constellation.appendChild(star);
+                }
+
+                const skillName = document.createElement('div');
+                skillName.className = 'skill-name';
+                skillName.textContent = skill;
+                constellation.appendChild(skillName);
+
+                container.appendChild(constellation);
+            });
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Parallax scroll effect
+        window.addEventListener('scroll', () => {
+            const layers = document.querySelectorAll('.star-layer');
+            const scrolled = window.pageYOffset;
+            
+            layers.forEach(layer => {
+                const speed = layer.dataset.speed;
+                const yPos = -(scrolled * speed);
+                layer.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+
+        // Form submission with rocket animation
+        document.querySelector('.contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const rocket = document.querySelector('.rocket');
+            rocket.style.opacity = '1';
+            rocket.classList.add('launch');
+            
+            setTimeout(() => {
+                alert('Message sent successfully!');
+                e.target.reset();
+                rocket.style.opacity = '0';
+                rocket.classList.remove('launch');
+            }, 2000);
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            createParallaxStars();
+            typeText();
+            createSkillsConstellation();
+            setInterval(createShootingStar, 3000);
+        });
+    </script>
+</body>
+</html>
