@@ -51,7 +51,7 @@ A **User Authentication System** developed with **HTML**, **CSS**, and **JavaScr
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/SahilK2805/OIBSIP.git
+   git clone https://github.com/sanket4555/oibsip.git
    ```
 
 2. Navigate to the desired project folder:
